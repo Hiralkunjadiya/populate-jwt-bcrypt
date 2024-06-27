@@ -1,0 +1,7 @@
+module.exports.movie_Services = require("./movie.services")
+module.exports.series_Services = require("./series.services")
+module.exports.admin_Services = require("./admin.services")
+module.exports.book_Services = require("./book.services")
+module.exports.city_Services = require("./city.services")
+module.exports.state_Services = require("./state.services")
+module.exports.country_Services = require("./country.services")

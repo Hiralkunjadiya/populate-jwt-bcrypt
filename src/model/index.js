@@ -1,0 +1,8 @@
+module.exports.User = require("./user.model")
+module.exports.Movie = require("./movie.model")
+module.exports.Series = require("./series.model")
+module.exports.Admin = require("./admin.model")
+module.exports.Book = require("./book.model")
+module.exports.City = require("./city.model")
+module.exports.State = require("./state.model")
+module.exports.Country = require("./country.model")
