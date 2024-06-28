@@ -1,4 +1,5 @@
 const { admin_Services } = require("../services");
+const Jwt = require("jsonwebtoken")
 
 const create_admin = async (req, res) => {
     try {
@@ -24,6 +25,47 @@ const create_admin = async (req, res) => {
     }
 };
 
+const token_admin =async (req,res) => {
+    try {
+        const paylod = req.body
+        const token = await Jwt.sign(paylod,"SECRETKEY")
+        console.log(token);
+        if (!token) {
+            throw new Error("Enter signature")
+        }
+        res.status(200).json({
+            success:true,
+            message:"Token generated",
+            token:token
+        }) 
+    } catch (error) {
+        res.status(400).json({
+            success:false,
+            message:error.message
+        })
+    }
+}
+
+const decode_admin =async (req,res) => {
+    try {
+        const token = req.body.token
+        const data = await Jwt.verify(token,"SECRETKEY")
+        console.log(token);
+        if (!data) {
+            throw new Error("data not decode")
+        }
+        res.status(200).json({
+            success:true,
+            data:data
+        }) 
+    } catch (error) {
+        res.status(400).json({
+            success:false,
+            message:error.message
+        })
+    }
+}
+
 const get_admin =async (req,res) => {
     try {
         //servises
@@ -46,5 +88,7 @@ const get_admin =async (req,res) => {
 
 module.exports = {
     create_admin,
-    get_admin
+    get_admin,
+    token_admin,
+    decode_admin
 };

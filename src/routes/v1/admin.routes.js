@@ -8,6 +8,16 @@ router.post("/create-admin",
     admin_Controller.create_admin
 )
 
+router.post("/create-token",
+    //callback
+    admin_Controller.token_admin
+)
+
+router.post("/decode-token",
+    //callback
+    admin_Controller.decode_admin
+)
+
 router.get("/list",
     //controller
     admin_Controller.get_admin

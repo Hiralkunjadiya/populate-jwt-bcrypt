@@ -5,7 +5,7 @@ const app = express();
 
 app.listen(8088, 
     () => {
-            console.log("server 1000 8080");
+            console.log("server 1000 8088");
     }
 );
 
